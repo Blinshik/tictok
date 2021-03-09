@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header />
+    
     <div class="middle">
+      
       <LeftSide />
       <router-view />
     </div>
@@ -12,12 +14,15 @@
 import Header from "./components/Header";
 import LeftSide from "./components/LeftSide";
 
+
 export default {
   name: "App",
   components: {
     Header,
     LeftSide,
+    
   },
+  
 };
 </script>
 

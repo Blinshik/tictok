@@ -1,7 +1,7 @@
 <template>
     <div class="rightSide">
-        <div v-for="item in items" :key="item">
-        <Card />
+        <div v-for="item in $store.getters.getItems" :key="item.id" >
+            <Card  :items="item.url" />
         </div>
     </div>
 </template>
@@ -14,11 +14,7 @@ export default {
     components:{
         Card,
     },
-     data ()  {
-        return {
-            items: [1, 2, 3, 4, 5, 6]
-    }       
-    }
+    
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="RightSideNext">
-    <div v-for="card in 20" :key="card" class="RightSideNext__card"></div>
+    <div v-for="card in $store.getters.getCarts" :key="card" class="RightSideNext__card"></div>
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
   <div class="header">
+    <Popup :isOpen="$store.getters.getIsOpen" />
     <div class="header__wrapper">
       <img
         src="../../assets/logo.png"
@@ -20,14 +21,31 @@
         </span>
 
         <span class="material-icons"> message </span>
-        <button class="header__wrapper__menu__third">Войти</button>
+        <button class="header__wrapper__menu__third" @click="this.$store.commit('setOpen')" v-if="!$store.getters.getIsLogin">Войти</button>
+        <button class="header__wrapper__menu__third" @click="logOut"  v-else> Выйти</button>
       </div>
     </div>
+    
+  
   </div>
+  
 </template>
 
 <script>
-export default {};
+import Popup from "../Popup"
+import firebase from "firebase/app"
+
+export default {
+  components: {
+    Popup
+  },
+  methods: {
+   async logOut() {
+      await firebase.auth().signOut();
+      this.$store.commit('setLogin');
+    }
+  }
+};
 </script>
 
 <style lang="scss">

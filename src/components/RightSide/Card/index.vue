@@ -8,7 +8,12 @@
         placeat culpa doloremque qui 
       </div>
       <div class="cardRight__userContent__wrapper">
-        <div class="cardRight__userContent__wrapper__content"></div>
+        <iframe class="cardRight__userContent__wrapper__content"
+          :src=" items " 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
         <div class="cardRight__userContent__wrapper__buttons">
           <div>
             <div
@@ -56,7 +61,14 @@
 </template>
 
 <script>
-export default {
+
+
+export default { 
+  props: {
+    items:{
+      type: String,
+  }
+  },
   data() {
     return {
       clicked1: false,
@@ -70,29 +82,37 @@ export default {
   methods: {
     counterHandler1() {
       if (this.clicked1) {
-        this.counter1--;
+       
         this.clicked1 = false;
+        this.counter1--;
+        
       } else {
-        this.counter1++;
         this.clicked1 = true;
+        this.counter1++;
+       
       }
     },
     counterHandler2() {
       if (this.clicked2) {
-        this.counter2--;
+      
         this.clicked2 = false;
+        this.counter2--;
+       
       } else {
         this.counter2++;
         this.clicked2 = true;
+        
       }
     },
     counterHandler3() {
       if (this.clicked3) {
         this.counter3--;
         this.clicked3 = false;
+      
       } else {
         this.counter3++;
         this.clicked3 = true;
+        
       }
     },
   },
